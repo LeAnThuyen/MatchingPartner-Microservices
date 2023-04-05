@@ -8,6 +8,8 @@ namespace PlatformService.Data
     {
         Task<IEnumerable<PlatformReadDto>> GetAllPlatForm(PlatformGetListDto input);
         Task<PlatForm> GetPlatFormAsync(int id);
-        Task<int> CreatePlatForm(PlatFormCreateDto platForm);
+        Task<int> CreatePlatForm(PlatFormCreateUpdateDto platForm);
+        Task<int> UpdatePlatForm(PlatFormCreateUpdateDto platForm);
+        Task<int> DeletePlatForm(int id);
     }
 }

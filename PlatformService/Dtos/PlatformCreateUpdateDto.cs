@@ -2,8 +2,9 @@
 
 namespace PlatformService.Dtos
 {
-    public class PlatFormCreateDto
+    public class PlatFormCreateUpdateDto
     {
+        public int? Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

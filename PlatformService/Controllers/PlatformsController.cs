@@ -23,7 +23,7 @@ namespace PlatformService.Controllers
             return await _platFormRepo.GetAllPlatForm(input);
         }
         [HttpPost]
-        public async Task<int> CreateAsync([FromBody] PlatFormCreateDto platFormCreateDto)
+        public async Task<int> CreateAsync([FromBody] PlatFormCreateUpdateDto platFormCreateDto)
         {
             return await _platFormRepo.CreatePlatForm(platFormCreateDto);
         }

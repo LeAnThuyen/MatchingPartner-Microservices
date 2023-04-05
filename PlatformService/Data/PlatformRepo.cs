@@ -14,11 +14,19 @@ namespace PlatformService.Data
         {
             _configuration = configuration;
         }
-        public async Task<int> CreatePlatForm(PlatFormCreateDto platForm)
+        public async Task<int> CreatePlatForm(PlatFormCreateUpdateDto platForm)
         {
             using (IDbConnection db = new SqlConnection(_configuration["ConnectionStrings:Default"]))
             {
                 return await db.ExecuteAsync("Platform_Create", platForm, null, null, CommandType.StoredProcedure);
+            }
+        }
+
+        public async Task<int> DeletePlatForm(int id)
+        {
+            using (IDbConnection db = new SqlConnection(_configuration["ConnectionStrings:Default"]))
+            {
+                return await db.ExecuteAsync("Platform_Delete", id, null, null, CommandType.StoredProcedure);
             }
         }
 
@@ -42,6 +50,11 @@ namespace PlatformService.Data
                 parameters.Add("Id", id);
                 return await db.QueryFirstAsync<PlatForm>("Platform_GetById", parameters, null, null, CommandType.StoredProcedure);
             }
+        }
+
+        public async Task<int> UpdatePlatForm(PlatFormCreateUpdateDto platForm)
+        {
+            throw new NotImplementedException();
         }
     }
 }
